@@ -21,9 +21,10 @@ Setup the project
 1. Install the depedencies above
 2. `$ git clone git@github.com:joice/spotippos.git` - Clone the project
 3. `$ cd spotippos` - Go into the project folder
-4. `$ bundle exec rale db:setup` - Create & setup the database
-5. `$ bundle install` - Install the gem dependencies
-6. `$ bundle exec rake spec` - Run the specs to see if everything is working fine
+4. `$ cp config/database.yml.example config/database.yml`  - Create database configuration file
+5. `$ bundle exec rake db:setup` - Create & setup the database
+6. `$ bundle install` - Install the gem dependencies
+7. `$ bundle exec rake spec` - Run the specs to see if everything is working fine
 
 If everything goes OK, you can now run the project!
 

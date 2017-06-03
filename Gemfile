@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
+gem 'activerecord-postgis-adapter'
 gem 'jbuilder',                 '2.6.4'
 gem 'pg',                       '0.20.0'
 gem 'rails',                    '5.1.1'

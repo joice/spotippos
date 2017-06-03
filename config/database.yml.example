@@ -1,0 +1,32 @@
+development:
+  adapter:  postgis
+  host:     localhost
+  encoding: unicode
+  schema_search_path: public
+  database: spotippos_development
+  pool:     5
+  username: postgres
+  password: 
+  template: template0
+
+test:
+  adapter:  postgis
+  host:     localhost
+  encoding: unicode
+  schema_search_path: public
+  database: spotippos_test
+  pool:     5
+  username: postgres
+  password: 
+  template: template0
+
+production:
+  adapter:  postgis
+  host:     localhost
+  encoding: unicode
+  schema_search_path: public
+  database: spotippos_production
+  pool:     5
+  username: postgres
+  password: 
+  template: template0
