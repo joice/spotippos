@@ -5,6 +5,7 @@ gem 'activerecord-postgis-adapter'
 gem 'jbuilder',                 '2.6.4'
 gem 'pg',                       '0.20.0'
 gem 'rails',                    '5.1.1'
+gem 'responders',               '2.4.0'
 gem 'sass-rails',               '5.0.6'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '3.2.0'
@@ -34,11 +35,12 @@ group :test do
   gem 'capybara',               '2.14.0'
   gem 'database_cleaner',       '1.6.1'
   gem 'launchy',                '2.4.3'
+  gem 'rails-controller-testing', '1.0.2'
   gem 'selenium-webdriver',     '3.4.0'
   gem 'shoulda-matchers',       '3.1.1'
   gem 'simplecov',              '0.14.1'
 end
 
 group :production do
-  gem 'puma', '3.9.0'
+  gem 'puma',                   '3.9.0'
 end
