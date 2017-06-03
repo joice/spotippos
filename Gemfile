@@ -34,6 +34,7 @@ group :test do
   gem 'database_cleaner',       '1.6.1'
   gem 'launchy',                '2.4.3'
   gem 'selenium-webdriver',     '3.4.0'
+  gem 'simplecov',              '0.14.1'
 end
 
 group :production do
