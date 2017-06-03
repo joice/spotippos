@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
+gem 'jbuilder',                 '2.6.4'
+gem 'pg',                       '0.20.0'
 gem 'rails',                    '5.1.1'
 gem 'sass-rails',               '5.0.6'
-gem 'uglifier',                 '3.2.0'
-gem 'jbuilder',                 '2.6.4'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'pg',                       '0.20.0'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'uglifier', '3.2.0'
 
 group :development do
   gem 'better_errors',          '2.1.1'
@@ -19,7 +19,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_girl_rails',     '4.8.0'
   gem 'faker',                  '1.7.3'
   gem 'pry-rails',              '0.3.6'
@@ -38,5 +38,5 @@ group :test do
 end
 
 group :production do
-  gem 'puma',                     '3.9.0'
+  gem 'puma', '3.9.0'
 end
