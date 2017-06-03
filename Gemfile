@@ -1,43 +1,41 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 ruby '2.3.1'
-gem 'rails', '~> 5.1.1'
-gem 'pg'
-gem 'thin'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jbuilder', '~> 2.5'
+gem 'rails',                    '5.1.1'
+gem 'sass-rails',               '5.0.6'
+gem 'uglifier',                 '3.2.0'
+gem 'jbuilder',                 '2.6.4'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'pg',                       '0.20.0'
 
 group :development do
-  gem 'better_errors'
-  gem 'rails_layout'
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors',          '2.1.1'
+  gem 'listen',                 '3.1.5'
+  gem 'rails_layout',           '1.0.41'
+  gem 'spring',                 '2.0.2'
+  gem 'spring-commands-rspec',  '1.0.4'
+  gem 'spring-watcher-listen',  '2.0.1'
+  gem 'web-console',            '3.5.1'
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'pry-rails'
-  gem 'pry-rescue'
-  gem 'rspec-rails'
-  gem 'rubocop'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'factory_girl_rails',     '4.8.0'
+  gem 'faker',                  '1.7.3'
+  gem 'pry-rails',              '0.3.6'
+  gem 'pry-rescue',             '1.4.5'
+  gem 'rspec-rails',            '3.6.0'
+  gem 'rubocop',                '0.49.1'
+  gem 'thin',                   '1.7.0'
 end
 
 group :test do
-  gem 'database_cleaner'
-  gem 'launchy'
+  gem 'capybara',               '2.14.0'
+  gem 'database_cleaner',       '1.6.1'
+  gem 'launchy',                '2.4.3'
+  gem 'selenium-webdriver',     '3.4.0'
+end
+
+group :production do
+  gem 'puma',                     '3.9.0'
 end
