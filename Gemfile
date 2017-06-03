@@ -1,14 +1,16 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'activerecord-postgis-adapter'
+gem 'activerecord-postgis-adapter', '5.0.1'
 gem 'jbuilder',                 '2.6.4'
 gem 'pg',                       '0.20.0'
 gem 'rails',                    '5.1.1'
+gem 'ransack',                  '1.8.2'
 gem 'responders',               '2.4.0'
 gem 'sass-rails',               '5.0.6'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'uglifier', '3.2.0'
+gem 'uglifier',                 '3.2.0'
+gem 'will_paginate',            '3.1.5'
 
 group :development do
   gem 'better_errors',          '2.1.1'
