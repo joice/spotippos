@@ -9,7 +9,7 @@ AllCops:
    - 'vendor/bundle/**/*'
 
 Metrics/LineLength:
-  Max: 300
+  Max: 320
 
 Metrics/MethodLength:
   Max: 30
