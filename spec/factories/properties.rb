@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :property do
-    title 'Imóvel código N, com 1 quarto e 1 banheiro'
-    price 540_000
+    beds { rand(1..5) }
+    baths { rand(1..4) }
+    sequence(:title) { |n| "Imóvel código #{n}, com #{beds} quarto(s) e #{baths} banheiro(s)" }
+    price { rand(10_000..100_000) }
     description 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    beds 1
-    baths 1
-    square_meters 42
-    x 667
-    y 556
+    square_meters { rand(20..240) }
+    x { rand(0..1400) }
+    y { rand(1..1000) }
   end
 end

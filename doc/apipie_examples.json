@@ -1,0 +1,211 @@
+{
+  "properties#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/properties",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "property[title]=Im%C3%B3vel+c%C3%B3digo+34%2C+com+4+quartos+e+3+banheiros&property[description]=Lorem+ipsum+dolor+sit+amet%2C+consectetur+adipiscing+elit.&property[price]=1250000&property[x]=999&property[y]=333&property[beds]=4&property[baths]=3&property[square_meters]=237&format=json",
+      "response_data": {
+        "id": 41,
+        "title": "Imóvel código 34, com 4 quartos e 3 banheiros",
+        "price": 1250000,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "beds": 4,
+        "baths": 3,
+        "square_meters": 237,
+        "x": 999,
+        "y": 333
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "properties#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/api/v1/properties/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "properties#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/properties",
+      "versions": [
+        "1.0"
+      ],
+      "query": "format=json",
+      "request_data": null,
+      "response_data": {
+        "total_pages": 1,
+        "properties": [
+          {
+            "id": 11,
+            "title": "Imóvel código 11, com 3 quarto(s) e 1 banheiro(s)",
+            "price": 81480,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 3,
+            "baths": 1,
+            "square_meters": 222,
+            "x": 982,
+            "y": 482
+          },
+          {
+            "id": 12,
+            "title": "Imóvel código 12, com 2 quarto(s) e 3 banheiro(s)",
+            "price": 34946,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 2,
+            "baths": 3,
+            "square_meters": 162,
+            "x": 150,
+            "y": 381
+          },
+          {
+            "id": 13,
+            "title": "Imóvel código 13, com 4 quarto(s) e 1 banheiro(s)",
+            "price": 92494,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 4,
+            "baths": 1,
+            "square_meters": 227,
+            "x": 707,
+            "y": 943
+          },
+          {
+            "id": 14,
+            "title": "Imóvel código 14, com 2 quarto(s) e 3 banheiro(s)",
+            "price": 20907,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 2,
+            "baths": 3,
+            "square_meters": 156,
+            "x": 1151,
+            "y": 276
+          },
+          {
+            "id": 15,
+            "title": "Imóvel código 15, com 2 quarto(s) e 4 banheiro(s)",
+            "price": 58257,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 2,
+            "baths": 4,
+            "square_meters": 62,
+            "x": 510,
+            "y": 537
+          },
+          {
+            "id": 16,
+            "title": "Imóvel código 16, com 1 quarto(s) e 4 banheiro(s)",
+            "price": 17546,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 1,
+            "baths": 4,
+            "square_meters": 193,
+            "x": 626,
+            "y": 128
+          },
+          {
+            "id": 17,
+            "title": "Imóvel código 17, com 3 quarto(s) e 2 banheiro(s)",
+            "price": 31804,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 3,
+            "baths": 2,
+            "square_meters": 234,
+            "x": 752,
+            "y": 348
+          },
+          {
+            "id": 18,
+            "title": "Imóvel código 18, com 3 quarto(s) e 3 banheiro(s)",
+            "price": 67984,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 3,
+            "baths": 3,
+            "square_meters": 155,
+            "x": 359,
+            "y": 857
+          },
+          {
+            "id": 19,
+            "title": "Imóvel código 19, com 5 quarto(s) e 2 banheiro(s)",
+            "price": 99291,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 5,
+            "baths": 2,
+            "square_meters": 180,
+            "x": 219,
+            "y": 672
+          },
+          {
+            "id": 20,
+            "title": "Imóvel código 20, com 3 quarto(s) e 3 banheiro(s)",
+            "price": 97292,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "beds": 3,
+            "baths": 3,
+            "square_meters": 229,
+            "x": 814,
+            "y": 204
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "properties#show": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/properties/21",
+      "versions": [
+        "1.0"
+      ],
+      "query": "format=json",
+      "request_data": null,
+      "response_data": {
+        "id": 21,
+        "title": "Imóvel código 21, com 1 quarto(s) e 3 banheiro(s)",
+        "price": 23399,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "beds": 1,
+        "baths": 3,
+        "square_meters": 49,
+        "x": 164,
+        "y": 528
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "properties#update": [
+    {
+      "verb": "PATCH",
+      "path": "/api/v1/properties/42",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "property[title]=Im%C3%B3vel+c%C3%B3digo+34%2C+com+4+quartos+e+3+banheiros&property[description]=Lorem+ipsum+dolor+sit+amet%2C+consectetur+adipiscing+elit.&property[price]=1250000&property[x]=999&property[y]=333&property[beds]=4&property[baths]=3&property[square_meters]=237&format=json",
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

@@ -28,7 +28,7 @@ RSpec.describe 'Properties', type: :request do
   describe 'GET /api/v1/properties' do
     before { get api_v1_properties_path, params: { format: :json } }
 
-    it 'returns a list of properties' do
+    it 'returns a list of properties', :show_in_doc do
       expect(json).not_to be_empty
       expect(json['properties'].size).to eq(10)
     end
@@ -42,7 +42,7 @@ RSpec.describe 'Properties', type: :request do
     context 'when the record exists' do
       before { get api_v1_property_path(property), params: { format: :json } }
 
-      it 'returns the property' do
+      it 'returns the property', :show_in_doc do
         expect(json).not_to be_empty
         expect(json['id']).to eq(property.id)
       end
@@ -70,7 +70,7 @@ RSpec.describe 'Properties', type: :request do
     context 'when the request is valid' do
       before { post api_v1_properties_path, params: { property: valid_attributes, format: :json } }
 
-      it 'creates a property' do
+      it 'creates a property', :show_in_doc do
         expect(json['title']).to eq('Imóvel código 34, com 4 quartos e 3 banheiros')
         expect(json['price']).to eq(1_250_000)
         expect(json['x']).to eq(999)
@@ -103,7 +103,7 @@ RSpec.describe 'Properties', type: :request do
     context 'when the record exists' do
       before { patch api_v1_property_path(property), params: { property: valid_attributes, format: :json } }
 
-      it 'updates the record' do
+      it 'updates the record', :show_in_doc do
         expect(response.body).to be_empty
       end
 
@@ -113,7 +113,7 @@ RSpec.describe 'Properties', type: :request do
     end
   end
 
-  describe 'DELETE /properties/:id' do
+  describe 'DELETE /properties/:id', :show_in_doc do
     before { delete api_v1_property_path(property) }
 
     it 'returns http no_content' do
