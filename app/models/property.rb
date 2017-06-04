@@ -13,6 +13,8 @@ class Property < ApplicationRecord
 
   before_save :set_lonlat!
 
+  has_and_belongs_to_many :provinces, -> { distinct }
+
   private
 
   def set_lonlat!
