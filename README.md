@@ -1,10 +1,12 @@
 Spotippos
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Come to live in Spotippos!
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+URLs
+---------------
+* - Production environment on Heroku
+* - API Documentation
 
 Dependencies
 -------------
@@ -30,6 +32,8 @@ If everything goes OK, you can now run the project!
 
 Running the project
 -------------------------
+1. `$ bin/rails s` - Opens the server
+2. Open http://localhost:3000
 
 Running specs and checking coverage
 -------------
@@ -37,15 +41,6 @@ Running specs and checking coverage
 
 `$ coverage=on bundle exec rake spec` to generate the coverage report then open the file `coverage/index.html` on your browser.
 
-
-Similar Projects
+Get initial data to your machine
 ----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+`bundle exec rake provinces:create`
