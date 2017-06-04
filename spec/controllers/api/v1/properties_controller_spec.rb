@@ -6,6 +6,7 @@ RSpec.describe Api::V1::PropertiesController, type: :controller do
 
   let(:valid_attributes) do
     { title: 'Imóvel código 34, com 4 quartos e 3 banheiros',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       price: 1_250_000,
       x: 999,
       y: 333,

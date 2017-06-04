@@ -43,6 +43,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    apipie-rails (0.5.1)
+      rails (>= 4.1)
     arel (8.0.0)
     ast (2.3.0)
     better_errors (2.1.1)
@@ -265,6 +267,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter (= 5.0.1)
+  apipie-rails (= 0.5.1)
   better_errors (= 2.1.1)
   byebug
   capybara (= 2.14.0)

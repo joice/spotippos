@@ -9,6 +9,8 @@ class Property < ApplicationRecord
   validates :baths, numericality: { only_integer: true, less_than_or_equal_to: 4, greater_than_or_equal_to: 1 }
   validates :square_meters, numericality: { only_integer: true, less_than_or_equal_to: 240, greater_than_or_equal_to: 20 }
 
+  validates :title, :description, :price, :x, :y, :beds, :baths, :square_meters, presence: true
+
   before_save :set_lonlat!
 
   private

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 gem 'activerecord-postgis-adapter', '5.0.1'
+gem 'apipie-rails',             '0.5.1'
 gem 'jbuilder',                 '2.6.4'
 gem 'pg',                       '0.20.0'
 gem 'rails',                    '5.1.1'
