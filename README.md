@@ -41,6 +41,7 @@ Running specs and checking coverage
 
 `$ coverage=on bundle exec rake spec` to generate the coverage report then open the file `coverage/index.html` on your browser.
 
-Get initial data to your machine
+Import data to your machine
 ----------------
-`bundle exec rake provinces:create`
+`$ bundle exec rake provinces:create` - Import provinces
+`$ bundle exec rake properties:create` - Import provinces
