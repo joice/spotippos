@@ -9,6 +9,7 @@ gem 'rails',                    '5.1.1'
 gem 'ransack',                  '1.8.2'
 gem 'responders',               '2.4.0'
 gem 'sass-rails',               '5.0.6'
+gem 'sidekiq',                  '5.0.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier',                 '3.2.0'
 gem 'will_paginate',            '3.1.5'
