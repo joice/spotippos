@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603020020) do
+ActiveRecord::Schema.define(version: 20170604143659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20170603020020) do
     t.integer "baths"
     t.integer "square_meters"
     t.geometry "lonlat", limit: {:srid=>0, :type=>"st_point"}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.geometry "area", limit: {:srid=>0, :type=>"st_polygon"}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
