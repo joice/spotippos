@@ -11,6 +11,7 @@ class Property < ApplicationRecord
 
   validates :title, :description, :price, :x, :y, :beds, :baths, :square_meters, presence: true
 
+  after_save  :search_provinces
   before_save :set_lonlat!
 
   has_and_belongs_to_many :provinces, -> { distinct }
@@ -19,5 +20,9 @@ class Property < ApplicationRecord
 
   def set_lonlat!
     self.lonlat = "POINT(#{x} #{y})"
+  end
+
+  def search_provinces
+    ProvinceJob.perform_later(property_id: id)
   end
 end
