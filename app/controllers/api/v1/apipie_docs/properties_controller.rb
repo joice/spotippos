@@ -4,12 +4,16 @@ module Api
       # Defines apipie doc to properties controller
       module PropertiesController
         def apipie_index
-          api :GET, 'properties', 'List all properties'
+          api :GET, 'properties', 'List of properties'
           api_version '1.0'
           formats ['json']
-          description 'Retrieve a list of properties in JSON'
-          param :q, Hash, desc: 'Query params for search', required: false do
-          end
+          description 'Retrieve a list of properties in JSON where their coordinates are within of the points passed by'
+          param :ax, [0..1400], desc: 'Coordinate for the point A located on the x-axis of map', required: true
+          param :ay, [0..1000], desc: 'Coordinate for the point A located on the y-axis of map', required: true
+          param :bx, [0..1400], desc: 'Coordinate for the point B located on the x-axis of map', required: true
+          param :by, [0..1000], desc: 'Coordinate for the point B located on the y-axis of map', required: true
+          param :per_page, Integer, desc: 'Quantity of object will be shown per page'
+          param :page, Integer, desc: 'Number of the page of collection'
         end
 
         def apipie_show
