@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'binding_of_caller',      '0.7.2'
   gem 'capybara',               '2.14.0'
   gem 'database_cleaner',       '1.6.1'
   gem 'launchy',                '2.4.3'
