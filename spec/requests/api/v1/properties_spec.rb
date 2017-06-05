@@ -1,8 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'Properties', type: :request do
-  let!(:properties) { create_list(:property, 10) }
-  let(:property) { properties.first }
+  let!(:jaby) { create(:province, name: 'Jaby', area: 'POLYGON((1100 1000, 1400 1000, 1400 500, 1100 500, 1100 1000))') }
+  let!(:gode) { create(:province, name: 'Gode', area: 'POLYGON((0 1000, 600 1000, 600 500, 0 500, 0 1000))') }
+  let!(:ruja) { create(:province, name: 'Ruja', area: 'POLYGON((400 1000, 1100 1000, 1100 500, 400 500, 400 1000))') }
+  let!(:scavy) { create(:province, name: 'Scavy', area: 'POLYGON((0 500, 600 500, 600 0, 0 0, 0 500))') }
+  let!(:nova) { create(:province, name: 'Nova', area: 'POLYGON((800 500, 1400 500, 1400 0, 800 0, 800 500))') }
+
+  let!(:property_1) { create(:property, x: 1257, y: 928, provinces: [jaby]) }
+  let!(:property_2) { create(:property, x: 679,  y: 680, provinces: [ruja]) }
+  let!(:property_3) { create(:property, x: 1051, y: 441, provinces: [nova]) }
+  let!(:property_4) { create(:property, x: 252,  y: 868, provinces: [gode]) }
+  let!(:property_5) { create(:property, x: 34,   y: 660, provinces: [gode]) }
+  let!(:property_6) { create(:property, x: 1363, y: 122, provinces: [nova]) }
+  let!(:property_7) { create(:property, x: 38,   y: 664, provinces: [gode]) }
+  let!(:property_8) { create(:property, x: 1201, y: 592, provinces: [jaby]) }
+  let!(:property_9) { create(:property, x: 795,  y: 534, provinces: [ruja]) }
+  let!(:property_10) { create(:property, x: 304, y: 225, provinces: [scavy]) }
 
   let(:valid_attributes) do
     { title: 'Imóvel código 34, com 4 quartos e 3 banheiros',
@@ -26,11 +40,11 @@ RSpec.describe 'Properties', type: :request do
   end
 
   describe 'GET /api/v1/properties' do
-    before { get api_v1_properties_path, params: { format: :json } }
+    before { get api_v1_properties_path, params: { ax: 0, ay: 1000, bx: 600, by: 500, format: :json } } # Gode boundaries
 
     it 'returns a list of properties', :show_in_doc do
       expect(json).not_to be_empty
-      expect(json['properties'].size).to eq(10)
+      expect(json['properties'].size).to eq(3)
     end
 
     it 'returns http success' do
@@ -40,11 +54,11 @@ RSpec.describe 'Properties', type: :request do
 
   describe 'GET /api/v1/property/:id' do
     context 'when the record exists' do
-      before { get api_v1_property_path(property), params: { format: :json } }
+      before { get api_v1_property_path(property_1), params: { format: :json } }
 
       it 'returns the property', :show_in_doc do
         expect(json).not_to be_empty
-        expect(json['id']).to eq(property.id)
+        expect(json['id']).to eq(property_1.id)
       end
 
       it 'returns http success' do
@@ -101,7 +115,7 @@ RSpec.describe 'Properties', type: :request do
 
   describe 'PATCH /api/v1/properties/:id' do
     context 'when the record exists' do
-      before { patch api_v1_property_path(property), params: { property: valid_attributes, format: :json } }
+      before { patch api_v1_property_path(property_1), params: { property: valid_attributes, format: :json } }
 
       it 'updates the record', :show_in_doc do
         expect(response.body).to be_empty
@@ -114,7 +128,7 @@ RSpec.describe 'Properties', type: :request do
   end
 
   describe 'DELETE /properties/:id', :show_in_doc do
-    before { delete api_v1_property_path(property) }
+    before { delete api_v1_property_path(property_1) }
 
     it 'returns http no_content' do
       expect(response).to have_http_status(:no_content)

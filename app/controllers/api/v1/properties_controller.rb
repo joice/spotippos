@@ -14,11 +14,7 @@ module Api
 
       apipie_index
       def index
-        params[:q] ||= []
-
-        @search = Property.search(params[:q])
-
-        @properties = @search.result.paginate(page: params[:page])
+        @properties = Property.find_by_polygon(params)
 
         @total_pages = @properties.total_pages
 

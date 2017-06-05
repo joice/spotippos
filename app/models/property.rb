@@ -16,6 +16,27 @@ class Property < ApplicationRecord
 
   has_and_belongs_to_many :provinces, -> { distinct }
 
+  def self.find_by_polygon(params = {})
+    query = <<-SQL
+      SELECT id, title, price, description, beds, baths, square_meters, lonlat
+      FROM (
+          SELECT ST_GeometryFromText('POLYGON ((:ax :ay, :bx :ay, :bx :by, :ax :by, :ax :ay))') AS polygon
+      ) AS query1, (
+          SELECT id, title, price, description, beds, baths, square_meters, lonlat
+          FROM properties
+      ) AS query2
+      WHERE ST_Contains(query1.polygon, query2.lonlat)
+    SQL
+
+    Property.paginate_by_sql([
+                               query,
+                               ax: params[:ax].to_i,
+                               ay: params[:ay].to_i,
+                               bx: params[:bx].to_i,
+                               by: params[:by].to_i
+                             ], page: params[:page], per_page: params[:per_page])
+  end
+
   private
 
   def set_lonlat!

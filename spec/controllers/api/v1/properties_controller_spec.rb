@@ -1,8 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::PropertiesController, type: :controller do
-  let!(:properties) { create_list(:property, 10) }
-  let(:property) { properties.first }
+  let!(:property_1) { create(:property, x: 1257, y: 928) }
+  let!(:property_2) { create(:property, x: 679,  y: 680) }
+  let!(:property_3) { create(:property, x: 1051, y: 441) }
+  let!(:property_4) { create(:property, x: 252,  y: 868) }
+  let!(:property_5) { create(:property, x: 34,   y: 660) }
+  let!(:property_6) { create(:property, x: 1363, y: 122) }
+  let!(:property_7) { create(:property, x: 38,   y: 664) }
+  let!(:property_8) { create(:property, x: 1201, y: 592) }
+  let!(:property_9) { create(:property, x: 795,  y: 534) }
+  let!(:property_10) { create(:property, x: 304, y: 225) }
 
   let(:valid_attributes) do
     { title: 'Imóvel código 34, com 4 quartos e 3 banheiros',
@@ -26,18 +34,36 @@ RSpec.describe Api::V1::PropertiesController, type: :controller do
   end
 
   describe 'GET #index' do
-    before { get :index, format: :json }
+    context 'without pass page and per_page params' do
+      before { get :index, params: { ax: 0, ay: 1000, bx: 600, by: 500, format: :json } } # Gode boundaries
 
-    it { expect(assigns(:properties).count).to eq(10) }
-    it { expect(assigns(:properties).first.id).to eq(property.id) }
+      it { expect(assigns(:properties).count).to eq(3) }
+    end
+
+    context 'passing per_page params' do
+      before { get :index, params: { ax: 0, ay: 1000, bx: 600, by: 500, per_page: 1, format: :json } } # Gode boundaries
+
+      it { expect(assigns(:total_pages)).to eq(3) }
+      it { expect(assigns(:properties).count).to eq(1) }
+      it { expect(assigns(:properties).first.id).to eq(property_4.id) }
+    end
+
+    context 'passing per_page and page params' do
+      before { get :index, params: { ax: 0, ay: 1000, bx: 600, by: 500, per_page: 1, page: 3, format: :json } } # Gode boundaries
+
+      it { expect(assigns(:total_pages)).to eq(3) }
+      it { expect(assigns(:properties).count).to eq(1) }
+      it { expect(assigns(:properties).first.id).to_not eq(property_4.id) }
+      it { expect(assigns(:properties).first.id).to eq(property_7.id) }
+    end
   end
 
   describe 'GET #show' do
     context 'when the record exists' do
-      before { get :show, params: { id: property, format: :json } }
+      before { get :show, params: { id: property_1, format: :json } }
 
       it { expect(response).to have_http_status(:success) }
-      it { expect(assigns(:property)).to eq(property) }
+      it { expect(assigns(:property)).to eq(property_1) }
     end
 
     context 'when the record does not exist' do
@@ -75,31 +101,31 @@ RSpec.describe Api::V1::PropertiesController, type: :controller do
 
   describe 'PATCH #update' do
     describe 'with valid attributes' do
-      before { patch :update, params: { id: property, property: valid_attributes } }
+      before { patch :update, params: { id: property_1, property: valid_attributes } }
 
-      it { expect(property.reload.title).to eq('Imóvel código 34, com 4 quartos e 3 banheiros') }
-      it { expect(assigns(:property)).to eq(property) }
+      it { expect(property_1.reload.title).to eq('Imóvel código 34, com 4 quartos e 3 banheiros') }
+      it { expect(assigns(:property)).to eq(property_1) }
       it { expect(response.body).to be_empty }
       it { expect(response).to have_http_status(:no_content) }
     end
 
     describe 'with invalid attributes' do
-      before { patch :update, params: { id: property, property: invalid_attributes } }
+      before { patch :update, params: { id: property_1, property: invalid_attributes } }
 
-      it { expect(property.reload.title).to_not eq('Imóvel código 34, com 4 quartos e 3 banheiros') }
-      it { expect(assigns(:property)).to eq(property) }
+      it { expect(property_1.reload.title).to_not eq('Imóvel código 34, com 4 quartos e 3 banheiros') }
+      it { expect(assigns(:property)).to eq(property_1) }
     end
   end
 
   describe 'DELETE #destroy' do
     it 'should delete property' do
       expect do
-        delete :destroy, params: { id: property }
+        delete :destroy, params: { id: property_1 }
       end.to change(Property, :count).by(-1)
     end
 
     context 'returns http no_content' do
-      before { delete :destroy, params: { id: property } }
+      before { delete :destroy, params: { id: property_1 } }
 
       it { expect(response).to have_http_status(:no_content) }
     end
