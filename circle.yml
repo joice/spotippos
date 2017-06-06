@@ -1,0 +1,31 @@
+machine:
+  timezone: America/Sao_Paulo
+
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+checkout:
+  post:
+    - mkdir -p tmp/cache
+
+database:
+  override:
+    - 'cp config/database.yml.example config/database.yml'
+    - 'bundle exec rake db:drop db:create db:migrate RAILS_ENV=test || true'
+
+test:
+  pre:
+    - bundle exec rubocop --rails
+  override:
+    - coverage=on bundle exec rspec spec --format progress --color
+
+general:
+  artifacts:
+    - coverage
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: spotipposland
