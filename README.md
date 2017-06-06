@@ -48,6 +48,7 @@ Running specs and checking coverage
 Import data to your machine
 ----------------
 `$ bundle exec rake provinces:create` - Import provinces
+
 `$ bundle exec rake properties:create` - Import properties
 
 Deploy proccess
