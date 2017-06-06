@@ -40,7 +40,7 @@ RSpec.describe 'Properties', type: :request do
   end
 
   describe 'GET /api/v1/properties' do
-    before { get api_v1_properties_path, params: { ax: 0, ay: 1000, bx: 600, by: 500, format: :json } } # Gode boundaries
+    before { get api_v1_properties_path, params: { ax: 0, ay: 1000, bx: 600, by: 500 } } # Gode boundaries
 
     it 'returns a list of properties', :show_in_doc do
       expect(json).not_to be_empty
@@ -54,7 +54,7 @@ RSpec.describe 'Properties', type: :request do
 
   describe 'GET /api/v1/property/:id' do
     context 'when the record exists' do
-      before { get api_v1_property_path(property_1), params: { format: :json } }
+      before { get api_v1_property_path(property_1) }
 
       it 'returns the property', :show_in_doc do
         expect(json).not_to be_empty
@@ -68,7 +68,7 @@ RSpec.describe 'Properties', type: :request do
 
     context 'when the record does not exist' do
       let(:property_id) { 100 }
-      before { get api_v1_property_path(id: property_id), params: { format: :json } }
+      before { get api_v1_property_path(id: property_id) }
 
       it 'returns http not_found' do
         expect(response).to have_http_status(:not_found)
@@ -82,7 +82,7 @@ RSpec.describe 'Properties', type: :request do
 
   describe 'POST /api/v1/properties' do
     context 'when the request is valid' do
-      before { post api_v1_properties_path, params: { property: valid_attributes, format: :json } }
+      before { post api_v1_properties_path, params: { property: valid_attributes } }
 
       it 'creates a property', :show_in_doc do
         expect(json['title']).to eq('Imóvel código 34, com 4 quartos e 3 banheiros')
@@ -100,7 +100,7 @@ RSpec.describe 'Properties', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post api_v1_properties_path, params: { property: invalid_attributes, format: :json } }
+      before { post api_v1_properties_path, params: { property: invalid_attributes } }
 
       it 'returns http unprocessable_entity' do
         expect(response).to have_http_status(:unprocessable_entity)
@@ -115,7 +115,7 @@ RSpec.describe 'Properties', type: :request do
 
   describe 'PATCH /api/v1/properties/:id' do
     context 'when the record exists' do
-      before { patch api_v1_property_path(property_1), params: { property: valid_attributes, format: :json } }
+      before { patch api_v1_property_path(property_1), params: { property: valid_attributes } }
 
       it 'updates the record', :show_in_doc do
         expect(response.body).to be_empty

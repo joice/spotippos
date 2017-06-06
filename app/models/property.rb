@@ -29,12 +29,12 @@ class Property < ApplicationRecord
     SQL
 
     Property.paginate_by_sql([
-      query,
-      ax: params[:ax].to_i,
-      ay: params[:ay].to_i,
-      bx: params[:bx].to_i,
-      by: params[:by].to_i
-    ], page: params[:page], per_page: params[:per_page])
+                               query,
+                               ax: params[:ax].to_i,
+                               ay: params[:ay].to_i,
+                               bx: params[:bx].to_i,
+                               by: params[:by].to_i
+                             ], page: params[:page], per_page: params[:per_page])
   end
 
   private
