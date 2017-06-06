@@ -5,8 +5,8 @@ Come to live in Spotippos!
 
 URLs
 ---------------
-* - Production environment on Heroku
-* - API Documentation
+* https://spotipposland.herokuapp.com/ - Production environment on Heroku
+* https://spotipposland.herokuapp.com/docs - API Documentation
 
 Dependencies
 -------------
@@ -15,6 +15,8 @@ To run this project you need to have:
 
 - Ruby 2.3.1
 - Rails 5.1.1
+- PostgresSQL
+- Redis
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
@@ -44,4 +46,12 @@ Running specs and checking coverage
 Import data to your machine
 ----------------
 `$ bundle exec rake provinces:create` - Import provinces
-`$ bundle exec rake properties:create` - Import provinces
+`$ bundle exec rake properties:create` - Import properties
+
+Deploy proccess
+----------------
+
+1. `$ heroku login` - Install the heroku CLI
+2. `cd spotippos/` - Go into the project folder
+3. `heroku git:remote -a spotipposland` - Add heroku remote
+4. `$ git push heroku master` - Deploy
