@@ -14,7 +14,7 @@ module Api
 
       apipie_index
       def index
-        @properties = Property.find_by_polygon(params)
+        @properties = Property.within_polygon(params)
 
         @total_pages = @properties.total_pages
 

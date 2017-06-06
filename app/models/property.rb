@@ -14,9 +14,10 @@ class Property < ApplicationRecord
   after_save  :search_provinces
   before_save :set_lonlat!
 
-  has_and_belongs_to_many :provinces, -> { distinct }
+  has_many :properties_provinces, -> { distinct }
+  has_many :provinces, through: :properties_provinces
 
-  def self.find_by_polygon(params = {})
+  def self.within_polygon(params = {})
     query = <<-SQL
       SELECT id, title, price, description, beds, baths, square_meters, lonlat
       FROM (

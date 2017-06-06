@@ -3,7 +3,7 @@ Apipie.configure do |config|
   config.api_base_url['1.0']     = '/api/v1/'
   config.doc_base_url            = '/docs'
   # where is your API defined?
-  config.api_controllers_matcher = "#{Rails.root}/app/controllers/api/**/*.rb"
+  config.api_controllers_matcher = Rails.root.join('app', 'controllers', 'api', '**', '*.rb')
   config.api_routes              = Rails.application.routes
   config.show_all_examples       = true
   config.validate                = false

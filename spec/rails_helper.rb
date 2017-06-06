@@ -12,7 +12,7 @@ require 'shoulda/matchers'
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 

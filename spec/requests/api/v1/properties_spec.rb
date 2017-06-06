@@ -1,22 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Properties', type: :request do
-  let!(:jaby) { create(:province, name: 'Jaby', area: 'POLYGON((1100 1000, 1400 1000, 1400 500, 1100 500, 1100 1000))') }
-  let!(:gode) { create(:province, name: 'Gode', area: 'POLYGON((0 1000, 600 1000, 600 500, 0 500, 0 1000))') }
-  let!(:ruja) { create(:province, name: 'Ruja', area: 'POLYGON((400 1000, 1100 1000, 1100 500, 400 500, 400 1000))') }
-  let!(:scavy) { create(:province, name: 'Scavy', area: 'POLYGON((0 500, 600 500, 600 0, 0 0, 0 500))') }
-  let!(:nova) { create(:province, name: 'Nova', area: 'POLYGON((800 500, 1400 500, 1400 0, 800 0, 800 500))') }
-
-  let!(:property_1) { create(:property, x: 1257, y: 928, provinces: [jaby]) }
-  let!(:property_2) { create(:property, x: 679,  y: 680, provinces: [ruja]) }
-  let!(:property_3) { create(:property, x: 1051, y: 441, provinces: [nova]) }
-  let!(:property_4) { create(:property, x: 252,  y: 868, provinces: [gode]) }
-  let!(:property_5) { create(:property, x: 34,   y: 660, provinces: [gode]) }
-  let!(:property_6) { create(:property, x: 1363, y: 122, provinces: [nova]) }
-  let!(:property_7) { create(:property, x: 38,   y: 664, provinces: [gode]) }
-  let!(:property_8) { create(:property, x: 1201, y: 592, provinces: [jaby]) }
-  let!(:property_9) { create(:property, x: 795,  y: 534, provinces: [ruja]) }
-  let!(:property_10) { create(:property, x: 304, y: 225, provinces: [scavy]) }
+  let!(:property_1) { create(:property, x: 1257, y: 928) }
+  let!(:property_2) { create(:property, x: 679,  y: 680) }
+  let!(:property_3) { create(:property, x: 1051, y: 441) }
+  let!(:property_4) { create(:property, x: 252,  y: 868) }
+  let!(:property_5) { create(:property, x: 34,   y: 660) }
+  let!(:property_6) { create(:property, x: 1363, y: 122) }
+  let!(:property_7) { create(:property, x: 38,   y: 664) }
+  let!(:property_8) { create(:property, x: 1201, y: 592) }
+  let!(:property_9) { create(:property, x: 795,  y: 534) }
+  let!(:property_10) { create(:property, x: 304, y: 225) }
 
   let(:valid_attributes) do
     { title: 'Imóvel código 34, com 4 quartos e 3 banheiros',
