@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/joice/spotippos.svg?style=svg)](https://circleci.com/gh/joice/spotippos)
+
 Spotippos
 ================
 
