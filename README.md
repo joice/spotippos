@@ -58,3 +58,8 @@ Deploy proccess
 2. `cd spotippos/` - Go into the project folder
 3. `heroku git:remote -a spotipposland` - Add heroku remote
 4. `$ git push heroku master` - Deploy
+
+Suggested AWS infraesructure for production environment
+----------------
+
+* https://cl.ly/1H2f3S2i1T2v
