@@ -1,1 +1,1 @@
-worker: bundle exec sidekiq -C 7 -v
+worker: bundle exec sidekiq -C 43 -v -e production

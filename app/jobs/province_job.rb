@@ -1,7 +1,5 @@
 # This job performs find what province the property belongs
 class ProvinceJob < ApplicationJob
-  queue_as :provinces
-
   def perform(args)
     property = Property.find(args[:property_id])
 
