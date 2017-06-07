@@ -6,7 +6,8 @@ class ProvinceJob < ApplicationJob
     query = <<-SQL
       SELECT properties.id, array_agg(provinces.id order by provinces.id) AS area_list
       FROM provinces, properties
-      WHERE st_contains(provinces.area, properties.lonlat) AND properties.id = ?
+      WHERE (st_contains(st_boundary(provinces.area), properties.lonlat) OR
+             st_contains(provinces.area, properties.lonlat)) AND properties.id = ?
       GROUP BY properties.id
       ORDER BY properties.id
     SQL
