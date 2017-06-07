@@ -8,7 +8,7 @@ RSpec.describe 'Properties' do
   end
 
   describe '#create' do
-    it 'should create 6 properties' do
+    it 'should create 8000 properties' do
       expect do
         Rake::Task['properties:create'].invoke
       end.to change(Property, :count).by(8000)

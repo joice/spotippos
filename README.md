@@ -51,8 +51,6 @@ Import data to your machine
 
 `$ bundle exec rake properties:create` - Import properties
 
-`$ bundle exec rake properties:restart_id_seq` - Restart id sequence of properties table (ps.: important if properties were imported)
-
 Deploy proccess
 ----------------
 
