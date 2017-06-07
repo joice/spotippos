@@ -15,8 +15,8 @@ namespace :properties do
     properties.each(&:save)
   end
 
-  desc "Restart id sequences of properties tables"
-  task :restart_id_seq => :environment do
+  desc 'Restart id sequences of properties tables'
+  task restart_id_seq: :environment do
     properties_max_id = Property.maximum(:id).to_i + 1
     ActiveRecord::Base.connection.execute("ALTER SEQUENCE properties_id_seq RESTART #{properties_max_id}")
   end
