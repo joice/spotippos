@@ -17,10 +17,4 @@ namespace :provinces do
       province.save!
     end
   end
-
-  desc 'Restart id sequences of provinces tables'
-  task restart_id_seq: :environment do
-    provinces_max_id = Property.maximum(:id).to_i + 1
-    ActiveRecord::Base.connection.execute("ALTER SEQUENCE provinces_id_seq RESTART #{provinces_max_id}")
-  end
 end
