@@ -65,3 +65,45 @@ Suggested AWS infraesructure for production environment
 ----------------
 
 * https://cl.ly/1H2f3S2i1T2v
+
+
+Suggested application test
+----------------
+
+1. Creating a property on Spotipposland
+
+```
+curl -X POST \
+  http://spotipposland.herokuapp.com/api/v1/properties \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'postman-token: 471f3ea1-a431-7e1b-510d-2a7c73b5a16b' \
+  -F 'property[title]=Imóvel código 1, com 5 quartos e 4 banheiros' \
+  -F 'property[x]=870' \
+  -F 'property[price]=1250000' \
+  -F 'property[description]=Lorem ipsum dolor sit amet, consectetur adipiscing elit.' \
+  -F 'property[y]=867' \
+  -F 'property[beds]=5' \
+  -F 'property[baths]=4' \
+  -F 'property[square_meters]=134'
+```
+
+2. Find a property on Spotipposland
+
+```
+curl -X GET \
+  http://spotipposland.herokuapp.com/api/v1/properties/665 \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'postman-token: e445f5f7-240b-2d79-85ca-ab1b83fa5c38' \
+```
+
+3. Search properties on Spotipposland passing 2 points
+
+```
+curl -X GET \
+  'http://spotipposland.herokuapp.com/api/v1/properties?ax=300&ay=1000&bx=700&by=500&format=json' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'postman-token: 46890674-0aad-5d64-decb-88a852fbfb36' \
+```
